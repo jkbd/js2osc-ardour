@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 #include <linux/joystick.h>
 #include <lo/lo.h>
 
