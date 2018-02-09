@@ -1,12 +1,19 @@
 # js2osc-ardour
 Use a gamepad to control transport in [Ardour](https://ardour.org/).
 
+If you know [Bison](http://liblo.sourceforge.net/) or understand
+[BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) grammar
+this small piece of software could be easily adapted to your needs.
+You could tie arbitrary complex button sequences to C++ functions but
+keep it simple, please.
+
+
 ## Dependencies
 
 * A gamepad or joystick device
 * Linux (and its [Joystick API](https://www.kernel.org/doc/Documentation/input/joystick-api.txt))
 * [liblo](http://liblo.sourceforge.net/) (for interfacing Ardour via [Open Sound Control](http://opensoundcontrol.org/introduction-osc))
-* [Bison](http://liblo.sourceforge.net/)
+* [Bison](http://liblo.sourceforge.net/) parser generator
 
 
 ## Build
@@ -93,7 +100,7 @@ grammar file `src/parser.y`. Follow these steps:
 %token TOKEN_MY_BUTTON_RELEASE 0x0abcdf;
 ```
 
-3. Add a grammar rule with your C++ code. E.g.
+3. Add a grammar rule with your C++ code. E.g.:
 ```
 startswith_button_a: [...]
 | [...]
