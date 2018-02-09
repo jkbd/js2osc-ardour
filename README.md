@@ -81,5 +81,24 @@ HAT_DOWN>HAT_DOWN< | Temporal zoom-in
 HAT_UP>HAT_UP< | Temporal zoom-out
 
 
-You might want to change the configuration in code. See the Bison
-grammar file `src/parser.y`.
+You might want to change the configuration in the code. See the Bison
+grammar file `src/parser.y`. Follow these steps:
+
+1. Find the `yylex()` function and check out, which hexcode your
+   button produces.
+
+2. Make sure, you define a token with the same code. Add e.g.:
+```
+%token TOKEN_MY_BUTTON_PRESS   0x0abcde;
+%token TOKEN_MY_BUTTON_RELEASE 0x0abcdf;
+```
+
+3. Add a grammar rule with your C++ code. E.g.
+```
+startswith_button_a: [...]
+| [...]
+| TOKEN_MY_BUTTON_PRESS TOKEN_MY_BUTTON_RELEASE {
+  std::cout << "My button was pressed and released." << std::endl;
+} 
+;
+```
