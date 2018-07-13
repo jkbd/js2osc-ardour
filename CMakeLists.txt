@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.2)
 project( js2osc-ardour )
-SET(CMAKE_CXX_FLAGS "-std=c++11")
+SET(CMAKE_CXX_STANDARD 11)
 
 # cmake --help-module-list
 # else add modules to this path:
