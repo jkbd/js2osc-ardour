@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.7.2)
 project( js2osc-ardour )
+
 SET(CMAKE_CXX_STANDARD 11)
 
 # cmake --help-module-list
@@ -21,3 +22,7 @@ file(GLOB_RECURSE SOURCES
 
 add_executable( js2osc-ardour ${SOURCES} ${BISON_JoystickEventParser_OUTPUTS})
 target_link_libraries( js2osc-ardour ${LIBS})
+
+enable_testing()
+add_test(NAME SimpleRunTest COMMAND ${CMAKE_SOURCE_DIR}/test/run.sh)
+
