@@ -24,5 +24,6 @@ add_executable( js2osc-ardour ${SOURCES} ${BISON_JoystickEventParser_OUTPUTS})
 target_link_libraries( js2osc-ardour ${LIBS})
 
 enable_testing()
-add_test(NAME SimpleRunTest COMMAND ${CMAKE_SOURCE_DIR}/test/run.sh)
-
+add_test(NAME SimpleExitSuccess COMMAND ${CMAKE_SOURCE_DIR}/test/success.sh)
+add_test(NAME SimpleExitFailure COMMAND ${CMAKE_SOURCE_DIR}/test/fail.sh)
+set_tests_properties(SimpleExitFailure PROPERTIES WILL_FAIL true)
